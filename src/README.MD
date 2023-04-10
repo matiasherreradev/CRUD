@@ -1,1 +1,3 @@
-25 DE 34
+---restringir string en edades y numeros en nombres
+---modificar estetica
+---agregar funciones
