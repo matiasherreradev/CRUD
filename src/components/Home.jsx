@@ -23,7 +23,7 @@ function Home() {
 
   return (
     <>
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8 my-32 bg-black text-white">
         <table className="w-full border-collapse">
           <thead>
             <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
@@ -36,12 +36,12 @@ function Home() {
             {Employees && Employees.length > 0
               ? Employees.map((item) => {
                   return (
-                    <tr key={item.id} className="hover:bg-gray-100 border-b border-gray-200 py-10">
+                    <tr key={item.id} className="hover:bg-gray-800 border-b border-gray-200 py-10">
                       <td className="py-3 px-6 text-left whitespace-nowrap">{item.Name}</td>
                       <td className="py-3 px-6 text-left whitespace-nowrap">{item.Age}</td>
                       <td className="py-3 px-6 text-center">
                         <Link to={"/edit"}>
-                          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+                          <button className="bg-blue-500 hover:bg-blue-700 text-white w-28 mb-2 py-2  rounded mr-2"
                             onClick={() =>
                               handleEdit(item.id, item.Name, item.Age)
                             }
@@ -49,7 +49,7 @@ function Home() {
                             EDIT
                           </button>
                         </Link>
-                        <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                        <button className="bg-red-500 hover:bg-red-700 text-white w-28 py-2 rounded "
                           onClick={() => handleDelete(item.id)}
                         >
                           DELETE
@@ -63,7 +63,7 @@ function Home() {
         </table>
         <br />
         <Link className="d-grid gap-2" to="/create">
-          <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded">
+          <button className="bg-green-500 hover:bg-green-700 text-white  py-3 px-6 rounded">
             Create
           </button>
         </Link>

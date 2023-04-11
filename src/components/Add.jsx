@@ -23,29 +23,39 @@ function Add() {
     history("/");
   };
 
+
   return (
-    <div className="container mx-auto px-4 py-8">
-      <form className="grid gap-4">
-        <div className="mb-3">
-          <label htmlFor="formName" className="form-label">
+    <div className=" px-4 py-8 my-16 mx-auto md:w-3/4 lg:w-2/3 xl:w-1/2">
+      <h1 className="font-bold text-orange-300  flex items-center justify-center mb-16 text-3xl">Modify your data</h1>
+      <form className="grid gap-4 ">
+        <div className="mb-4 flex flex-wrap ">
+          <label
+            htmlFor="formName"
+            className="form-label text-white md:w-1/5 md:text-right md:pr-12 text-xl  my-auto"
+          >
             Name
           </label>
           <input
+            autoComplete="off"
             type="text"
-            className="form-control"
+            className="form-control w-full md:w-4/5 rounded-md px-2 py-1"
             id="formName"
             placeholder="Enter Name"
             required
             onChange={(e) => setName(e.target.value)}
           />
         </div>
-        <div className="mb-3">
-          <label htmlFor="formAge" className="form-label">
+        <div className="mb-3 flex flex-wrap">
+          <label
+            htmlFor="formAge"
+            className="text-xl  my-auto  form-label text-white md:w-1/5 md:text-right md:pr-12"
+          >
             Age
           </label>
           <input
+            autoComplete="off"
             type="text"
-            className="form-control"
+            className="form-control w-full md:w-4/5 rounded-md px-2 py-1"
             id="formAge"
             placeholder="Enter Age"
             required
@@ -53,13 +63,16 @@ function Add() {
           />
         </div>
         <button
-          className="bg-blue-500 text-white py-2 px-4 rounded"
+          className="bg-blue-500 text-white py-2 px-4 rounded w-full"
           onClick={(e) => handleSubmit(e)}
           type="submit"
         >
           Submit
         </button>
-        <Link to="/" className="bg-gray-500 text-white py-2 px-4 rounded">
+        <Link
+          to="/"
+          className="bg-gray-500 text-center text-white py-2 px-4 rounded w-full"
+        >
           Cancel
         </Link>
       </form>
@@ -68,11 +81,6 @@ function Add() {
 }
 
 export default Add;
-
-
-
-
-
 
 /*
 import React, { useState } from "react";
