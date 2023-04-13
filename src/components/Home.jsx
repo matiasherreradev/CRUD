@@ -23,10 +23,10 @@ function Home() {
 
   return (
     <>
-      <div className="container mx-auto px-4 py-8 my-32 bg-black text-white">
-        <table className="w-full border-collapse">
+      <div className="bg-[#393e46] px-4 py-8 my-32 mx-auto sm:w-full md:w-3/4 lg:w-2/3 xl:w-1/2">
+        <table className="w-full border-collapse ">
           <thead>
-            <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+            <tr className="bg-black text-white uppercase text-sm leading-normal ">
               <th className="py-3 px-6 text-left">Name</th>
               <th className="py-3 px-6 text-left">Age</th>
               <th className="py-3 px-6 text-center">Actions</th>
@@ -36,12 +36,13 @@ function Home() {
             {Employees && Employees.length > 0
               ? Employees.map((item) => {
                   return (
-                    <tr key={item.id} className="hover:bg-gray-800 border-b border-gray-200 py-10">
-                      <td className="py-3 px-6 text-left whitespace-nowrap">{item.Name}</td>
-                      <td className="py-3 px-6 text-left whitespace-nowrap">{item.Age}</td>
+                    <tr key={item.id} className=" hover:bg-gray-400 transition-all duration-200 hover:text-white border-b border-r  border-black  py-10 bg-[#f8cb63]   md:w-3/4 lg:w-2/3 xl:w-1/2 ">
+                      <td className="py-3 px-6 ">{item.Name}</td>
+                      <td className="py-3 px-6 ">{item.Age}</td>
+                 
                       <td className="py-3 px-6 text-center">
                         <Link to={"/edit"}>
-                          <button className="bg-blue-500 hover:bg-blue-700 text-white w-28 mb-2 py-2  rounded mr-2"
+                          <button className="bg-blue-500 hover:bg-blue-700  text-white w-20 mb-2 py-2  rounded mr-2 transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300 "
                             onClick={() =>
                               handleEdit(item.id, item.Name, item.Age)
                             }
@@ -49,12 +50,14 @@ function Home() {
                             EDIT
                           </button>
                         </Link>
-                        <button className="bg-red-500 hover:bg-red-700 text-white w-28 py-2 rounded "
+                        <button className="bg-red-500 hover:bg-red-700 text-white w-20 py-2 rounded mr-2
+                        transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300"
                           onClick={() => handleDelete(item.id)}
                         >
                           DELETE
                         </button>
                       </td>
+                   
                     </tr>
                   );
                 })
@@ -63,8 +66,8 @@ function Home() {
         </table>
         <br />
         <Link className="d-grid gap-2" to="/create">
-          <button className="bg-green-500 hover:bg-green-700 text-white  py-3 px-6 rounded">
-            Create
+          <button className="bg-green-500 hover:bg-green-700 text-white  py-3 px-6 rounded  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300">
+            CREATE
           </button>
         </Link>
       </div>

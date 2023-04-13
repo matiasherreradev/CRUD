@@ -1,8 +1,14 @@
 https://github.com/matiasherreradev/CRUD.git
 
 
----restringir string en edades y numeros en nombres
 ---modificar estetica
 ---agregar funciones
 ---transiciones, jerarquias, confirmaciones de envio, agregar iconos,validaciones
----responsive celu y pc
+---NO PERMITIR ENVIOS VACIOS EN CREATE NEW DATA
+---/create /cancelar NO FUNCIONA
+
+
+
+
+#393e46
+#f8cb63

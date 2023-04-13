@@ -22,9 +22,11 @@ function Edit() {
     let employeesCopy = Employees.slice();
     // OR let employeesCopy = [...Employees];
 
-    var index = employeesCopy.map(function (e) {
-      return e.id;
-    }).indexOf(id);
+    var index = employeesCopy
+      .map(function (e) {
+        return e.id;
+      })
+      .indexOf(id);
 
     let employee = employeesCopy[index];
     employee.Name = name;
@@ -35,9 +37,9 @@ function Edit() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex justify-center items-center">
+    <div className="bg-[#393e46] my-32 flex justify-center items-center">
       <form
-        className="w-1/3 p-8 bg-white rounded-lg shadow-lg"
+        className="w-2/3 md:w-2/5 p-8 bg-[#f8cb63] rounded-lg shadow-lg"
         onSubmit={(e) => handleSubmit(e)}
       >
         <h1 className="text-2xl font-bold mb-8">Edit Employee</h1>
@@ -46,11 +48,11 @@ function Edit() {
             Name
           </label>
           <input
+           pattern="[A-Za-z ]+" required
             className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="text"
             placeholder="Enter Name"
             value={name}
-            required
             onChange={(e) => setName(e.target.value)}
           />
         </div>
@@ -59,15 +61,17 @@ function Edit() {
             Age
           </label>
           <input
+            min="18"
+            max="90"
+            required
             className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            type="text"
+            type="number"
             placeholder="Enter Age"
             value={age}
-            required
             onChange={(e) => setAge(e.target.value)}
           />
         </div>
-        <div className="flex justify-end">
+        <div >
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
@@ -81,22 +85,6 @@ function Edit() {
 }
 
 export default Edit;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*import React, { useState, useEffect } from "react";
 import Employees from "./Employees";
@@ -167,9 +155,6 @@ function Edit() {
 
 export default Edit;
 */
-
-
-
 
 /*import React, { useState, useEffect,} from "react";
 import { Button, Form } from "react-bootstrap";
