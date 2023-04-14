@@ -1,25 +1,35 @@
 import React, { useState } from "react";
 import Employees from "./Employees";
 import { v4 as uuid } from "uuid";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Add() {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
 
-  let history = useNavigate();
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Validar que el nombre contenga sólo letras
+    if (!/^[a-zA-Z\s]+$/.test(name)) {
+      alert("Please enter a valid name containing only letters.");
+      return;
+    }
+
+    // Validar que la edad sea un número entre 18 y 65
+    if (isNaN(parseInt(age)) || parseInt(age) < 18 || parseInt(age) > 65) {
+      alert("Please enter a valid age between 18 and 65.");
+      return;
+    }
+
+    // Generar un ID único
     const ids = uuid();
-    let uniqueId = ids.slice(0, 8);
+    const uniqueId = ids.slice(0, 8);
 
-    let a = name;
-    let b = age;
+    // Agregar el nuevo empleado a la lista
+    Employees.push({ id: uniqueId, Name: name, Age: age });
 
-    Employees.push({ id: uniqueId, Name: a, Age: b });
-
+    // Navegar de vuelta a la página de inicio
     history("/");
   };
 
@@ -28,17 +38,16 @@ function Add() {
       <h1 className="font-bold #393e46  flex items-center justify-center mb-16 text-3xl">
         Create a new data entry
       </h1>
-      <form className="grid gap-4" onSubmit={handleSubmit}>
+      <form className="grid gap-4">
         <div>
           <label
             htmlFor="formName"
-            className="form-label text-black md:w-1/5 md:text-right md:pr-12 text-xl mb-2  "
+            className="form-label text-black md:w-1/5 md:text-right md:pr-12 text-xl   "
           >
             Name
           </label>
           <input
             pattern="[A-Za-z\s]+"
-            required
             autoComplete="off"
             type="text"
             className="form-control w-full  rounded-md px-2 py-1 mb-2"
@@ -57,8 +66,7 @@ function Add() {
           </label>
           <input
             min="18"
-            max="99"
-            required
+            max="65"
             autoComplete="off"
             type="number"
             className="form-control w-full  rounded-md px-2 py-1"
@@ -67,22 +75,25 @@ function Add() {
             onChange={(e) => setAge(e.target.value)}
           />
         </div>
-        <button
-          className="bg-blue-500 transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-105 duration-150 hover:bg-blue-600  text-white py-2 px-4 rounded w-full"
-          onClick={(e) => handleSubmit(e)}
-          type="submit"
-        >
-          Submit
-        </button>
-        <Link
-          to="/"
-          className="bg-red-500 text-center transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-105  duration-150  hover:bg-red-600   text-white py-2 px-4 rounded w-full"
-          onClick={(e) => {
-            e.preventDefault();
-            navigate("/");
-          }}
-        >
-          Cancel
+        <Link to="/" className="d-grid gap-2">
+          <button
+            className="bg-blue-500 transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-105 duration-150 hover:bg-blue-600  text-white py-2 px-4 rounded w-full"
+            onClick={(e) => handleSubmit(e)}
+            type="submit"
+          >
+            Submit
+          </button>
+        </Link>
+        <Link to="/" className="d-grid gap-2">
+          <button
+            className="bg-red-500 text-center transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-105  duration-150  hover:bg-red-600   text-white py-2 px-4 rounded w-full"
+            onClick={() => {
+              setName("");
+              setAge("");
+            }}
+          >
+            Cancel
+          </button>
         </Link>
       </form>
     </div>
@@ -90,61 +101,3 @@ function Add() {
 }
 
 export default Add;
-
-/*
-import React, { useState } from "react";
-import Employees from "./Employees";
-import { v4 as uuid } from "uuid";
-import { Link, useNavigate } from "react-router-dom";
-import '../index.css';
-
-
-function Add() {
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
-
-  let history = useNavigate();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const ids = uuid();
-    let uniqueId = ids.slice(0, 8);
-
-    let a = name;
-    let b = age;
-
-    Employees.push({ id: uniqueId, Name: a, Age: b });
-
-    history("/");
-  };
-
-  return (
-    <div>
-      <Form className="d-grid gap-2" style={{ margin: "15rem" }}>
-        <Form.Group className="mb-3" controlId="formName">
-          <Form.Control
-            type="text"
-            placeholder="Enter Name"
-            required
-            onChange={(e) => setName(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formAge">
-          <Form.Control
-            type="text"
-            placeholder="Enter Age"
-            required
-            onChange={(e) => setAge(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
-        <Button onClick={(e) => handleSubmit(e)} type="submit">
-          Submit
-        </Button>
-      </Form>
-    </div>
-  );
-}
-
-export default Add;
-*/
