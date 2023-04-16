@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import Employees from "./Employees";
 import { v4 as uuid } from "uuid";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Add() {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
+const history = useNavigate('/')
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,8 +35,8 @@ function Add() {
   };
 
   return (
-    <div className="bg-[#f8cb63] px-8 py-8 my-16 mx-auto md:w-3/4 lg:w-2/3 xl:w-1/2">
-      <h1 className="font-bold #393e46  flex items-center justify-center mb-16 text-3xl">
+    <div className="bg-[#f8cb63] px-4 py-8 my-16 mx-auto  sm:px-4 sm:py-8 sm:w-2/5  w-2/3 p-8  rounded-lg shadow-lg">
+      <h1 className="font-bold text-[#393e46]  flex items-center justify-center mb-16 text-3xl leading-tight text-center">
         Create a new data entry
       </h1>
       <form className="grid gap-4">
@@ -77,17 +78,17 @@ function Add() {
         </div>
         <Link to="/" className="d-grid gap-2">
           <button
-            className="bg-blue-500 transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-105 duration-150 hover:bg-blue-600  text-white py-2 px-4 rounded w-full"
-            onClick={(e) => handleSubmit(e)}
+            className="bg-blue-500 font-sans-lato font-bold  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-105 duration-150 hover:bg-blue-600  text-white py-2 px-4 rounded w-full"
             type="submit"
+            onClick={(e) => handleSubmit(e)}
           >
             Submit
           </button>
         </Link>
         <Link to="/" className="d-grid gap-2">
           <button
-            className="bg-red-500 text-center transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-105  duration-150  hover:bg-red-600   text-white py-2 px-4 rounded w-full"
-            onClick={() => {
+            className="bg-red-500 font-sans-lato font-bold   text-center transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-105  duration-150  hover:bg-red-600   text-white py-2 px-4 rounded w-full"
+            onClick={(e) => {
               setName("");
               setAge("");
             }}

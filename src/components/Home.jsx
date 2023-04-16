@@ -23,7 +23,8 @@ function Home() {
 
   return (
     <>
-      <div className="bg-[#393e46] px-4 py-8 my-32 mx-auto sm:w-full md:w-3/4 lg:w-2/3 xl:w-1/2">
+    <h1 className="  font-bold text-[#f8cb63]  flex items-center justify-center mb-16 text-3xl leading-tight text-center m-16">Staff List</h1>
+      <div className="bg-[#393e46] px-4 py-8 my-16 mx-auto sm:w-full md:w-3/4 lg:w-2/3 xl:w-1/2">
         <table className="w-full border-collapse ">
           <thead>
             <tr className="bg-black text-white uppercase text-sm leading-normal ">
@@ -46,12 +47,12 @@ function Home() {
                     <td className="py-3 px-6 mx-2">
                       <Link to={"/edit"}>
                         <button
-                          className="bg-blue-500 hover:bg-blue-700   text-white w-10/12 h-12  rounded  transition ease-in-out delay-150   px-4 my-1 sm:w-2/3 md:w-2/3 lg:w-3/3 xl:w-3/6 xl:ml-40 ml-6"
-                          onClick={() =>
+                          className="bg-blue-500 hover:bg-blue-700   text-white w-10/12 h-12  rounded  transition ease-in-out delay-150   px-4 my-1 sm:w-2/3 md:w-2/3 lg:w-2/3 xl:w-2/4 xl:ml-40 ml-6"
+                          onClick={(e) =>
                             handleEdit(item.id, item.Name, item.Age)
                           }
                         >
-                          <span>
+                          <span className="m-2">
                             <svg
                               className="h-6 w-6 fill-current text-white inline-block"
                               xmlns="http://www.w3.org/2000/svg"
@@ -66,11 +67,12 @@ function Home() {
                       </Link>
                       <button
                         className="bg-red-500 hover:bg-red-700 text-white  rounded w-10/12 px-1 ml-6 my-1 h-12
-                        transition ease-in-out delay-150  inline-block sm:w-2/3 md:w-2/3 lg:w-3/3 xl:w-3/6 xl:ml-40"
-                        onClick={() => handleDelete(item.id)}
+                        transition ease-in-out delay-150  inline-block sm:w-2/3 md:w-2/3 lg:w-2/3 xl:w-2/4 xl:ml-40"
+                        onClick={(e) => handleDelete(item.id)}
                       >
+                          <span className="m-2">
                         <svg
-                          className="w-6 h-6 fill-current text-white inline-block "
+                          className="w-6 h-6 fill-current text-white inline-block"
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
                         >
@@ -80,6 +82,7 @@ function Home() {
                             clipRule="evenodd"
                           />
                         </svg>
+                        </span>
                         DELETE
                       </button>
                     </td>
@@ -96,8 +99,8 @@ function Home() {
           </tbody>
         </table>
         <br />
-        <Link className="d-grid gap-2" to="/create">
-          <button className="bg-green-500 hover:bg-green-700 text-white  py-3 px-6 rounded  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300">
+        <Link className="grid gap-2" to="/create">
+          <button className="bg-green-500 hover:bg-green-700 text-white  py-3 px-6 rounded  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300 w-96 mx-auto">
             <span>
               <svg
                 className="fill-current text-white w-8 h-8 inline-block py-1"
@@ -117,79 +120,3 @@ function Home() {
 
 export default Home;
 
-/*import { React } from "react";
-import Employees from "./Employees";
-import { Link, useNavigate } from "react-router-dom";
-import '../index.css';
-
-
-function Home() {
-  let history = useNavigate();
-
-  const handleEdit = (id, name, age) => {
-    localStorage.setItem("Name", name);
-    localStorage.setItem("Age", age);
-    localStorage.setItem("Id", id);
-  };
-
-  function handleDelete(id) {
-    var index = Employees.map(function (e) {
-      return e.id;
-    }).indexOf(id);
-
-    Employees.splice(index, 1);
-
-    history("/");
-  }
-
-  return (
-    <>
-      <div className="container mx-auto px-4 py-8">
-        <Table  className="w-full" striped bordered hover size="sm">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Age</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {Employees && Employees.length > 0
-              ? Employees.map((item) => {
-                  return (
-                    <tr key={item.id}>
-                      <td>{item.Name}</td>
-                      <td>{item.Age}</td>
-                      <td>
-                        <Link to={"/edit"}>
-                          <Button
-                            onClick={() =>
-                              handleEdit(item.id, item.Name, item.Age)
-                            }
-                          >
-                            EDIT
-                          </Button>
-                        </Link>
-                        &nbsp;
-                        <Button onClick={() => handleDelete(item.id)}>
-                          DELETE
-                        </Button>
-                      </td>
-                    </tr>
-                  );
-                })
-              : "No data available"}
-          </tbody>
-        </Table>
-        <br></br>
-        <Link className="d-grid gap-2" to="/create">
-        <button className="bg-green-500 text-white py-3 px-6 rounded">
-  Create
-</button>
-        </Link>
-      </div>
-    </>
-  );
-}
-
-export default Home;*/
