@@ -23,8 +23,8 @@ function Home() {
 
   return (
     <>
-    <h1 className="  font-bold text-[#f8cb63]  flex items-center justify-center mb-16 text-3xl leading-tight text-center m-16">Staff List</h1>
-      <div className="bg-[#393e46] px-4 py-8 my-16 mx-auto sm:w-full md:w-3/4 lg:w-2/3 xl:w-1/2">
+    <h1 className="  font-bold text-[#f8cb63]  flex items-center justify-center  text-3xl leading-tight text-center m-4">Staff List</h1>
+      <div className="bg-[#393e46] px-4 py-8 my-6 mx-auto sm:w-full md:w-3/4 lg:w-2/4 xl:w-1/2">
         <table className="w-full border-collapse ">
           <thead>
             <tr className="bg-black text-white uppercase text-sm leading-normal ">
@@ -100,7 +100,7 @@ function Home() {
         </table>
         <br />
         <Link className="grid gap-2" to="/create">
-          <button className="bg-green-500 hover:bg-green-700 text-white  py-3 px-6 rounded  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300 w-96 mx-auto">
+          <button className="bg-green-500 hover:bg-green-700 text-white  py-3 px-6 rounded  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300 w-80 mx-auto">
             <span>
               <svg
                 className="fill-current text-white w-8 h-8 inline-block py-1"

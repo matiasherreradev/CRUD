@@ -36,7 +36,7 @@ const history = useNavigate('/')
 
   return (
     <div className="bg-[#f8cb63] px-4 py-8 my-16 mx-auto  sm:px-4 sm:py-8 sm:w-2/5  w-2/3 p-8  rounded-lg shadow-lg">
-      <h1 className="font-bold text-[#393e46]  flex items-center justify-center mb-16 text-3xl leading-tight text-center">
+      <h1 className="font-bold text-black  flex items-center justify-center mb-16 text-3xl leading-tight text-center">
         Create a new data entry
       </h1>
       <form className="grid gap-4">
