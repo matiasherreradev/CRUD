@@ -6,8 +6,8 @@ const Employees = [
   },
   {
     id: "2",
-    Name: "Cintia Gonzalez",
-    Age: "36",
+    Name: "Cristian Rivero",
+    Age: "27",
   },
   {
     id: "3",
